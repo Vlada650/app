@@ -1,9 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function Easy ({field}) {
+export default function Hard ({field}) {
   let fieldNumb = Math.pow(field, 2);
-  const[array] = useState([]);
 
 function changeBackground(e) {
     if( e.target.style.background === 'blue') {
@@ -13,6 +12,7 @@ function changeBackground(e) {
     }
   }
     
+const[array] = useState([])
 useEffect(() => {
   foo();
 }, []);
@@ -29,7 +29,7 @@ const foo = ()  => {
 }
 
   return (<>
-      { array !== [] && <div  className='easy-mode'>
+      { array !== [] && <div  className='hard-mode'>
         {
           array.map(() => {
             return <div className="cell" onMouseOver={changeBackground} ></div>

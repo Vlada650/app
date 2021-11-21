@@ -1,13 +1,15 @@
 import React,{ useState} from 'react';
 import './Component.css';
-import Easy from './easy'
+import Easy from './Easy'
+import Normal from './Normal'
+import Hard from './Hard'
 
 const Component = () => {
 
   /*state = { 
     НАПИСАТЬ КАК КЛАССОВЫЙ КОМПОНЕНТ
     showBox: false
-  };   handleBoxToggle = () => this.setState({ showBox: !this.state.showBox })*/  
+  };   handleBoxToggle = () => this.setState({ showBox: !this.state.showBox })*/
   const  modes = {
 "easyMode": {
 "field": 5
@@ -21,16 +23,15 @@ const Component = () => {
   const [val, setValue] = useState('Choose your mode')
   
   const handleChange = (e) => {
-   setValue( e.target.value);
-    console.log(val)
+    setValue( e.target.value);
   }
 
-  /*const pickMode = () =>{
-    debugger
-    /*if ( val === 'easyMode'){ 
-      return <Easy modes={modes}/>
-    }*/
-  
+//const [coll, setColl] = useState(false)
+  const pickMode = () =>{
+    if (val === 'easyMode'){
+      return <Easy field={modes['hardMode']['field']}/>
+    }
+  } 
 
   return ( <>
    <section className='settings'>
@@ -40,24 +41,23 @@ const Component = () => {
     <option name='normalMode' value='normalMode'>normalMode</option>
     <option name='hardMode' value='hardMode' >hardMode</option>
    </select>
-   <button className='' >Start</button>
+   <button onClick={pickMode}>Start</button>
    </section>
-   <section className="sec">
-
-    
+   <section className="main"> 
+     <Hard field={modes['hardMode']['field']} />
+     <Easy field={modes['easyMode']['field']} />
+     <Normal field={modes['normalMode']['field']}/>
    {/*modes.map((modes) => {defaultValue={'default'} 
                         return (
                             <div>{easyMode} : {field}</div>)
                     })}
-                    {easyMode && <Easy />}
-                    {normalMode && <Normal />}
-                    {hardMode && <Hard />}
+                    {easyMode && }
+                    {normalMode && }
+                    {hardMode && <Hard />}{coll && <>{val === 'easyMode' &&}</>
   */}
   </section>
-
     </>
   );
 }
-
 
 export default Component;

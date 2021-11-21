@@ -4,8 +4,8 @@ import Component from './Components/Component';
 
 function App() {
 
-  //const [modes, setModes] = useState([]);
-  /*useEffect(() => {
+  const [modes, setModes] = useState([]);
+  useEffect(() => {
     loadModes();
  }, []);
 
@@ -26,12 +26,12 @@ function App() {
         .then(response => {
           setModes(response);
         })
-        .catch(console.log('error'));
+        .catch('error');
       }
 
-      //console.log(JSON.parse(modes)) */
+     // console.log(modes['easyMode']['field'])
   return (
-  <Component />
+<Component modes={modes} loadModes={loadModes} />
   );
 }
 
