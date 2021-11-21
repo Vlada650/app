@@ -1,0 +1,50 @@
+.easy-mode{
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(3, 30%);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    /*gap: 1px solid black;*/
+}
+
+.cell{
+    background-color:  yellow; 
+    border: 1px soli red;
+    width: 15px;
+    height: 15px;
+}
+
+.cel{
+    background-color:  rgba(1, 33, 139, 0.5); 
+}
+
+
+.middle-mode{
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(4, 25%);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    display: none;
+}
+ 
+.hard-mode{
+    width: 200px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    display: none;
+ }
+
+ .sec{
+     margin: 50px auto;
+     display: flex;
+     justify-content: space-around;
+ }
