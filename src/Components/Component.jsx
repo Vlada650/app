@@ -1,16 +1,17 @@
-import React,{ useState} from 'react';
-import './Component.css';
+import React, { useState} from 'react';
+import '../styles/Component.css';
 import Easy from './Easy'
 import Normal from './Normal'
 import Hard from './Hard'
 
 const Component = ({modes}) => {
  
-  const [val, setValue] = useState('Choose your mode')
+  const [val, setValue] = useState('Choose your mode');
+  const[elem, showElem] = useState(false);
+
   const handleChange = (e) => {
     setValue( e.target.value);
   }
-const[elem, showElem] = useState(false)
 
   return ( <>
    <section className='settings'>
