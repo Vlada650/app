@@ -1,3 +1,7 @@
+.settings{
+    margin: 20px;
+}
+
 .easy-mode{
     width: 250px;
     height: 250px;
@@ -6,7 +10,7 @@
     grid-template-rows: repeat(5, 20%);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
-    /*gap: 1px solid black;*/
+    margin: 10px;
 }
 
 .cell{
@@ -24,6 +28,7 @@
     grid-template-rows: repeat(10, 10%);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
+    margin: 10px;
 }
  
 .hard-mode{
@@ -34,10 +39,12 @@
     grid-template-rows: repeat(15, 7%);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
- }
+    margin: 10px;
+}
 
- .main{
-     margin: 50px auto;
-     display: flex;
-     justify-content:space-around;
- }
+.main{
+    margin: 20px;
+    display: flex;
+    justify-content:start;
+    flex-direction: column;
+}

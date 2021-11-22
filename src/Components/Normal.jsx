@@ -1,13 +1,24 @@
-
 import React, { useState, useEffect } from 'react';
+import shortid from 'shortid';
 
 export default function Normal ({field}) {
-  const[array] = useState([]);
   let fieldNumb = Math.pow(field, 2);
+ const[array] = useState([]);
 
   useEffect(() => {
     foo();
   }, []);
+
+const foo = ()  => {
+  for(let i = 0; i < fieldNumb; i++) {
+    if(array.length > fieldNumb-1){
+      break
+    } else {
+    array.push(React.createElement("div",{
+      "className" : "cell"
+    }))}
+  }
+}
 
 function changeBackground(e) {
     if( e.target.style.background === 'blue') {
@@ -15,24 +26,13 @@ function changeBackground(e) {
     } else {
       e.target.style.background = 'blue';
     }
-  }
-
-const foo = ()  => {
-  for(let i = 0; i < fieldNumb; i++) {
-    if(array.length > fieldNumb){
-      break
-    } else {
-    array.push(React.createElement("div",{
-      "className" : "cell",
-    }))}
-  }
 }
 
-  return (<>
+  return (<><div>Hover a square on normal-level</div>  
       { array !== [] && <div  className='normal-mode'>
         {
           array.map(() => {
-            return <div className="cell" onMouseOver={changeBackground} ></div>
+            return <div className="cell" onMouseOver={changeBackground} key={shortid.generate()}></div>
           })}
           </div>}  
   </>

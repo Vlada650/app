@@ -1,8 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import shortid from 'shortid';
 
 export default function Hard ({field}) {
-  let fieldNumb = Math.pow(field, 2);
+let fieldNumb = Math.pow(field, 2);
+const[array] = useState([])
 
 function changeBackground(e) {
     if( e.target.style.background === 'blue') {
@@ -12,14 +13,13 @@ function changeBackground(e) {
     }
   }
     
-const[array] = useState([])
 useEffect(() => {
   foo();
 }, []);
 
 const foo = ()  => {
   for(let i = 0; i < fieldNumb; i++) {
-    if(array.length > fieldNumb){
+    if(array.length > fieldNumb-1){
       break
     } else {
     array.push(React.createElement("div",{
@@ -28,11 +28,11 @@ const foo = ()  => {
   }
 }
 
-  return (<>
+  return (<><div>Hover a square on hard-level</div>  
       { array !== [] && <div  className='hard-mode'>
         {
           array.map(() => {
-            return <div className="cell" onMouseOver={changeBackground} ></div>
+            return <div className="cell" onMouseOver={changeBackground} key={shortid.generate()}></div>
           })}
           </div>}  
   </>
