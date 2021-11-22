@@ -5,12 +5,14 @@ import Component from './Components/Component';
 function App() {
 
   const [modes, setModes] = useState([]);
+  const [isFetching, setFething]  = useState(false);
   useEffect(() => {
     loadModes();
  }, []);
 
-  const loadModes = () => {
-    fetch('http://demo1030918.mockable.io/', {
+    function loadModes () {
+      setFething(true)
+      fetch('http://demo1030918.mockable.io/', {
         method: 'GET',
         headers: {
             'Content-type': 'application/json;charset=utf-8'
@@ -25,14 +27,19 @@ function App() {
         })
         .then(response => {
           setModes(response);
+          setFething(false)
         })
         .catch('error');
-      }
-
-     // console.log(modes['easyMode']['field'])
-  return (
-<Component modes={modes} loadModes={loadModes} />
-  );
+      }    
+     
+    if (isFetching) {
+      return <p>Loading... Please, wait</p>
+    } 
+      
+    return ( 
+      <Component modes={modes} loadModes={loadModes} />
+    );
+        
 }
 
 export default App;
