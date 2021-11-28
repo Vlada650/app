@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Component.css';
-import Easy from './Eay'
+import Easy from './Easy'
 import Normal from './Normal'
 import Hard from './Hard'
 
