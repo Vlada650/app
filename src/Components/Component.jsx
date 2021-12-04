@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
 import '../styles/Component.css';
-import Easy from './Easy'
-import Normal from './Normal'
-import Hard from './Hard'
+import SquareField from './SquareField';
 
 const Component = ({ modes }) => {
 
-  const [val, setValue] = useState('Choose your mode');
-  const [elem, showElem] = useState(false);
+  const [value, setValue] = useState('default');
+  const [squares, showSquares] = useState(false);
+  const modesKeys = Object.keys(modes);
 
-  const handleChange = (e) => {
+  const onModeChange = (e) => {
     setValue(e.target.value);
+    showSquares(false);
   }
 
   return (<>
-    <section className='settings'>
+    <section className='select-list'>
       <p>Let's start!</p>
-      <select onChange={handleChange} value={val}>
-        <option value="Choose your mode" disabled hidden>Choose your mode</option>
-        <option value='easyMode'>easyMode</option>
-        <option value='normalMode'>normalMode</option>
-        <option value='hardMode' >hardMode</option>
+
+      <select onChange={onModeChange} value={value}>
+        <option value="default" disabled hidden>Choose your mode</option>
+        {modesKeys.map(mode =>
+          <option value={modes[mode].field} key={mode}>{mode}</option>)
+        }
       </select>
-      <button onClick={() => showElem(true)}>Start</button>
+      <button onClick={() => showSquares(true)}>Start</button>
     </section>
-    {elem && <section className="main">
-      {val === 'easyMode' && <Easy field={modes['easyMode']['field']} />}
-      {val === 'normalMode' && <Normal field={modes['normalMode']['field']} />}
-      {val === 'hardMode' && <Hard field={modes['hardMode']['field']} />}
-    </section>}
+    <section className="selected-square">{squares && <SquareField field={value} />}</section>
   </>
   );
 }
